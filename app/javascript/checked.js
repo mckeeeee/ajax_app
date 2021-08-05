@@ -1,6 +1,6 @@
 function check() {
   // 表示されているすべてのメモを取得している
-  // (".post")は、index.html.erbの8行目 div class="post"を指している
+  // (".post")は、index.html.erbの12行目 div class="post"を指している
   const posts = document.querySelectorAll(".post");
 
   // ↑で複数取得した(".post")という要素に,forEachで繰り返し処理を行い、
@@ -41,7 +41,7 @@ function check() {
       XHR.send();
 
       
-      // レスポンスを受け取った時の処理を記述する
+      // コントローラーからレスポンスを受け取った時の処理を記述する
       // onloadはレスポンスなどの受信が成功した場合に呼び出されるイベントハンドラー
       XHR.onload = () => {
         if (XHR.status != 200) {
@@ -53,7 +53,7 @@ function check() {
         
         // レスポンスされたデータを変数itemに代入している
         // XHR.response.post;のpostは、
-        // posts_controller 23行目 render json: { post: item }のpostを指している
+        // posts_controller 26行目 render json: { post: item }のpostを指している
         const item = XHR.response.post;
         // trueは既読状態
                 if (item.checked === true){
