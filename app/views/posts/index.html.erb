@@ -1,8 +1,13 @@
 <h1>AjaxApp</h1>
 <%= form_with url: "/posts", method: :post,id: "form" do |form| %>
+  <%# memo.js 48行目でcontentを取得するために、id:"content"と記入 %>
   <%= form.text_field :content %>
   <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
+
+<%# 投稿後にメモを追加する要素として追加 %>
+<div id="list">
+</div>
 
 <% @posts.each do |post|%>
 <div class="post" data-id = <%= post.id %> data-check = <%= post.checked %>>
